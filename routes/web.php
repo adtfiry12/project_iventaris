@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
@@ -27,3 +24,19 @@ Route::get('/pengguna', [
     PenggunaController::class,
     'index'
 ])->name('pengguna.index');
+Route::get('/pengguna/create', [
+    PenggunaController::class,
+    'create'
+])->name('pengguna.create');
+Route::post('/pengguna/store', [
+    PenggunaController::class,
+    'store'
+])->name('pengguna.store');
+Route::get('pengguna/edit/{id}', [
+    PenggunaController::class,
+    'edit'
+])->name('pengguna.edit');
+Route::get('/pengguna/delete/{id}', [
+    PenggunaController::class,
+    'destroy'
+])->name('pengguna.destroy');
