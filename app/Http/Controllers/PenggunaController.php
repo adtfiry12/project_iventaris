@@ -66,7 +66,8 @@ class PenggunaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        return view('pengguna.edit', compact('pengguna'));
     }
 
     /**
@@ -74,7 +75,27 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        $request->validate([
+            'username' => 'required|unique:pengguna,username,' . $id . ',id_pengguna',
+            'nama'     => 'required',
+            'email'    => 'required|email|unique:pengguna,email,' . $id . ',id_pengguna',
+            'role'     => 'required',
+        ]);
+
+        $pengguna->username = $request->username;
+        $pengguna->nama     = $request->nama;
+        $pengguna->email    = $request->email;
+        $pengguna->role     = $request->role;
+
+        if ($request->filled('password')) {
+            $request->validate(['password' => 'min:6']);
+            $pengguna->password = Hash::make($request->password);
+        }
+
+        $pengguna->save();
+
+        return redirect()->route('pengguna.index')->with('success', 'Data berhasil diperbarui!');
     }
 
     /**
@@ -82,6 +103,9 @@ class PenggunaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        $pengguna->delete();
+
+        return redirect()->route('pengguna.index')->with('success', 'Data berhasil dihapus!');
     }
 }
