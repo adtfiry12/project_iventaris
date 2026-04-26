@@ -59,19 +59,29 @@ class AuthController extends Controller
             'nama'     => 'required',
             'username' => 'required|unique:pengguna,username',
             'email'    => 'required|email|unique:pengguna,email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'image'    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' // Validasi file maksimal 2MB
         ], [
             'username.unique' => 'Username sudah digunakan, cari yang lain!',
-            'email.unique' => 'Email sudah terdaftar!',
-            'password.min' => 'Password minimal 6 karakter!'
+            'email.unique'    => 'Email sudah terdaftar!',
+            'password.min'    => 'Password minimal 6 karakter!',
+            'image.image'     => 'File harus berupa gambar!',
+            'image.mimes'     => 'Format gambar harus jpeg, png, jpg, atau gif!',
+            'image.max'       => 'Ukuran gambar maksimal 2MB!'
         ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('pengguna', 'public');
+        }
 
         Pengguna::create([
             'nama'     => $request->nama,
             'username' => $request->username,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'role'     => 'user'
+            'role'     => 'user',
+            'image'    => $imagePath
         ]);
 
         return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');

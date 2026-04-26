@@ -8,7 +8,7 @@
             <a href="#" class="btn-order">Mulai Sekarang</a>
         </div>
         <div class="hero-image">
-            <img src="{{ asset('img/logo.png') }}" alt="Ilustrasi Inventaris">
+            <img src="{{ asset('img/logoweb.png') }}" alt="Ilustrasi Inventaris">
         </div>
     </section>
     <section class="categories">

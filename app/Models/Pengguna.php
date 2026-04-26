@@ -15,7 +15,8 @@ class Pengguna extends Authenticatable
         'nama',
         'password',
         'email',
-        'role'
+        'role',
+        'image'
     ];
     protected $hidden = [
         'password',

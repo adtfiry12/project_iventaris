@@ -166,7 +166,9 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
                     <div class="image">
-                        <img src="{{ asset('img/adt1.jpeg') }}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ auth()->user()->image ? asset('storage/' . auth()->user()->image) : asset('img/adt1.jpeg') }}"
+                            class="img-circle elevation-2" alt="User Image"
+                            style="width: 35px; height: 35px; object-fit: cover;">
                     </div>
                     <div class="info d-flex align-items-center justify-content-between w-100">
                         <a href="#" class="d-block">{{ auth()->user()->username ?? 'Guest' }}</a>

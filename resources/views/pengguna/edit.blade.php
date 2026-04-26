@@ -11,9 +11,11 @@
                         <h3 class="card-title text-white">Form Edit Pengguna</h3>
                     </div>
 
-                    <form action="{{ route('pengguna.update', $pengguna->id_pengguna) }}" method="POST">
+                    <form action="{{ route('pengguna.update', $pengguna->id_pengguna) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
-                        @method('PUT') <div class="card-body">
+                        @method('PUT')
+                        <div class="card-body">
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control @error('username') is-invalid @enderror"
@@ -65,6 +67,22 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="image">Foto Profil</label><br>
+                                @if ($pengguna->image)
+                                    <img src="{{ asset('storage/' . $pengguna->image) }}" alt="Foto {{ $pengguna->nama }}"
+                                        width="100" class="img-thumbnail mb-2">
+                                    <br>
+                                @endif
+                                <input type="file" class="form-control-file @error('image') is-invalid @enderror"
+                                    id="image" name="image" accept="image/*">
+                                <small class="text-muted">Biarkan kosong jika tidak ingin mengubah foto profil.</small>
+                                @error('image')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                         </div>
 
                         <div class="card-footer text-right">

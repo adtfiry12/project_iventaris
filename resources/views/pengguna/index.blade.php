@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
+                                    <th>Foto</th>
                                     <th>Username</th>
                                     <th>Nama Lengkap</th>
                                     <th>Email</th>
@@ -24,10 +25,23 @@
                             <tbody>
                                 @foreach ($pengguna as $d)
                                     <tr>
-                                        <td>{{ $loop->iteration }}.</td>
-                                        <td>{{ $d->username }}</td>
-                                        <td>{{ $d->nama }}</td>
-                                        <td>{{ $d->email }}</td>
+                                        <td class="align-middle">{{ $loop->iteration }}.</td>
+
+                                        <td class="align-middle text-center">
+                                            @if ($d->image)
+                                                <img src="{{ asset('storage/' . $d->image) }}" alt="Foto" width="50"
+                                                    height="50" class="img-circle" style="object-fit: cover;">
+                                            @else
+                                                <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                                                    style="width: 50px; height: 50px;">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            @endif
+                                        </td>
+
+                                        <td class="align-middle">{{ $d->username }}</td>
+                                        <td class="align-middle">{{ $d->nama }}</td>
+                                        <td class="align-middle">{{ $d->email }}</td>
 
                                         <td class="text-center align-middle">
                                             @if (strtolower($d->role) == 'admin')

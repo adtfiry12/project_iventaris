@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class PenggunaController extends Controller
 {
@@ -36,10 +37,14 @@ class PenggunaController extends Controller
             'email'    => 'required|email|unique:pengguna,email',
             'password' => 'required|min:6',
             'role'     => 'required|in:admin,user',
+            'image'    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ], [
             'username.unique' => 'Username sudah digunakan!',
             'email.unique'    => 'Email sudah terdaftar!',
-            'password.min'    => 'Password minimal 6 karakter!'
+            'password.min'    => 'Password minimal 6 karakter!',
+            'image.image'     => 'File harus berupa gambar!',
+            'image.mimes'     => 'Format gambar harus jpeg, png, jpg, atau gif!',
+            'image.max'       => 'Ukuran gambar maksimal 2MB!'
         ]);
 
         $pengguna = new Pengguna();
@@ -48,6 +53,12 @@ class PenggunaController extends Controller
         $pengguna->email    = $request->email;
         $pengguna->password = Hash::make($request->password);
         $pengguna->role     = $request->role;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('pengguna', 'public');
+            $pengguna->image = $imagePath;
+        }
+
         $pengguna->save();
 
         return redirect()->route('pengguna.index')->with('success', 'Data pengguna berhasil ditambahkan!');
@@ -76,11 +87,13 @@ class PenggunaController extends Controller
     public function update(Request $request, string $id)
     {
         $pengguna = Pengguna::findOrFail($id);
+
         $request->validate([
             'username' => 'required|unique:pengguna,username,' . $id . ',id_pengguna',
             'nama'     => 'required',
             'email'    => 'required|email|unique:pengguna,email,' . $id . ',id_pengguna',
             'role'     => 'required',
+            'image'    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $pengguna->username = $request->username;
@@ -91,6 +104,15 @@ class PenggunaController extends Controller
         if ($request->filled('password')) {
             $request->validate(['password' => 'min:6']);
             $pengguna->password = Hash::make($request->password);
+        }
+
+        if ($request->hasFile('image')) {
+            if ($pengguna->image && Storage::disk('public')->exists($pengguna->image)) {
+                Storage::disk('public')->delete($pengguna->image);
+            }
+
+            $imagePath = $request->file('image')->store('pengguna', 'public');
+            $pengguna->image = $imagePath;
         }
 
         $pengguna->save();
@@ -104,6 +126,11 @@ class PenggunaController extends Controller
     public function destroy(string $id)
     {
         $pengguna = Pengguna::findOrFail($id);
+
+        if ($pengguna->image && Storage::disk('public')->exists($pengguna->image)) {
+            Storage::disk('public')->delete($pengguna->image);
+        }
+
         $pengguna->delete();
 
         return redirect()->route('pengguna.index')->with('success', 'Data berhasil dihapus!');

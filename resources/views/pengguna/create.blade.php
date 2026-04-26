@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Pengguna</h3>
                     </div>
-                    <form action="{{ route('pengguna.store') }}" method="POST">
+                    <form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
 
@@ -63,6 +63,15 @@
                                 </select>
                                 @error('role')
                                     <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image">Foto Profil (Opsional)</label>
+                                <input type="file" class="form-control-file @error('image') is-invalid @enderror"
+                                    id="image" name="image" accept="image/*">
+                                @error('image')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
                                 @enderror
                             </div>
 

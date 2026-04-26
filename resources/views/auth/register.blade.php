@@ -33,7 +33,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('register_proses') }}" method="POST">
+                <form action="{{ route('register_proses') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="input-group mb-3">
@@ -65,6 +65,15 @@
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="fas fa-lock"></span></div>
                         </div>
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <input type="file" name="image" class="form-control" accept="image/*"
+                            style="padding: 3px;">
+                        <div class="input-group-append">
+                            <div class="input-group-text"><span class="fas fa-camera"></span></div>
+                        </div>
+                        <small class="form-text text-muted w-100 mt-1">Pilih foto profil (Opsional)</small>
                     </div>
 
                     <div class="row">

@@ -34,7 +34,8 @@
                     <span style="color: #ccc;">|</span>
                 @endif
 
-                <i class="fas fa-user-circle fs-5" style="color: var(--teal);"></i>
+                <img src="{{ auth()->user()->image ? asset('storage/' . auth()->user()->image) : asset('dist/img/user2-160x160.jpg') }}"
+                    alt="User Avatar" style="width: 30px; height: 30px; object-fit: cover; border-radius: 100%;">
                 <span>{{ auth()->user()->username }}</span>
                 <span style="color: #ccc;">|</span>
 
