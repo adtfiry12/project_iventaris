@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\JenisController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\RuangController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend
@@ -10,7 +13,7 @@ route::get('/', [
     FrontController::class,
     'index'
 ])->name('home');
-// user
+// User
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register-proses', [AuthController::class, 'register_proses'])->name('register_proses');
 
@@ -30,6 +33,9 @@ Route::middleware(['auth', 'cekrole:admin'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // CRUD Pengguna
+    // CRUD
     Route::resource('pengguna', PenggunaController::class);
+    Route::resource('karyawan', KaryawanController::class);
+    Route::resource('ruang', RuangController::class);
+    Route::resource('jenis', JenisController::class);
 });

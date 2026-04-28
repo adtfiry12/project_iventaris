@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="image">Foto Profil (Opsional)</label>
+                                <label for="image">Foto Profil <small class="text-muted">(Opsional)</small></label>
                                 <input type="file" class="form-control-file @error('image') is-invalid @enderror"
                                     id="image" name="image" accept="image/*">
                                 @error('image')

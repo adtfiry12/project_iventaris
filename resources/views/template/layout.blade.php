@@ -244,43 +244,17 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('karyawan.index') }}"
                                         class="nav-link {{ request()->routeIs('karyawan.index') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Karyawan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('karyawan.create') }}"
                                         class="nav-link {{ request()->routeIs('karyawan.create') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Karyawan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item {{ request()->routeIs('ruang.*') ? 'menu-open' : '' }}">
-                            <a href="#" class="nav-link {{ request()->routeIs('ruang.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Ruang
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('ruang.index') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Ruang</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('ruang.create') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Ruang</p>
                                     </a>
                                 </li>
                             </ul>
@@ -296,17 +270,69 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('jenis.index') }}"
                                         class="nav-link {{ request()->routeIs('jenis.index') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Jenis</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('jenis.create') }}"
                                         class="nav-link {{ request()->routeIs('jenis.create') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Jenis</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('ruang.*') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ request()->routeIs('ruang.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p>
+                                    Ruang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('ruang.index') }}"
+                                        class="nav-link {{ request()->routeIs('ruang.index') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Ruang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('ruang.create') }}"
+                                        class="nav-link {{ request()->routeIs('ruang.create') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tambah Ruang</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('pinjam.*') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ request()->routeIs('pinjam.*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-hand-holding"></i>
+                                <p>
+                                    Pinjam
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#"
+                                        class="nav-link {{ request()->routeIs('pinjam.index') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Peminjaman</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#"
+                                        class="nav-link {{ request()->routeIs('pinjam.create') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tambah Peminjaman</p>
                                     </a>
                                 </li>
                             </ul>
@@ -334,32 +360,6 @@
                                         class="nav-link {{ request()->routeIs('iventaris.create') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Iventaris</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item {{ request()->routeIs('pinjam.*') ? 'menu-open' : '' }}">
-                            <a href="#" class="nav-link {{ request()->routeIs('pinjam.*') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-hand-holding"></i>
-                                <p>
-                                    Pinjam
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('pinjam.index') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Peminjaman</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('pinjam.create') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Peminjaman</p>
                                     </a>
                                 </li>
                             </ul>
