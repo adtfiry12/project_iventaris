@@ -13,7 +13,7 @@ class RuangController extends Controller
      */
     public function index()
     {
-        $ruang = Ruang::paginate(10);
+        $ruang = Ruang::paginate(5);
         return view('ruang.index', compact('ruang'));
     }
     private function kode_ruang()

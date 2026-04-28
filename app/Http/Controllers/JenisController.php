@@ -13,7 +13,7 @@ class JenisController extends Controller
      */
     public function index()
     {
-        $jenis = Jenis::paginate(10);
+        $jenis = Jenis::paginate(5);
         return view('jenis.index', compact('jenis'));
     }
     private function kode_jenis()
