@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detail_pinjam', function (Blueprint $table) {
             $table->bigIncrements('id_detail_pinjam');
             $table->bigInteger('id_pinjam');
-            $table->bigInteger('id_iventaris');
+            $table->bigInteger('id_inventaris');
             $table->string('jumlah');
             $table->string('status');
             $table->string('kondisi');

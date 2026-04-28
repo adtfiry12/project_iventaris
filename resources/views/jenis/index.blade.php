@@ -7,12 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Data Master Jenis Barang</h3>
-                        <div class="card-tools">
-                            <a href="{{ route('jenis.create') }}" class="btn btn-primary btn-sm rounded-pill shadow-sm">
-                                <i class="fas fa-plus"></i> Tambah Jenis
-                            </a>
-                        </div>
+                        <h3 class="card-title">Data Jenis Barang</h3>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped">

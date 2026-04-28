@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::table('ruang', function (Blueprint $table) {
             $table->string('image')->nullable()->after('keterangan');
         });
-        Schema::table('iventaris', function (Blueprint $table) {
+        Schema::table('inventaris', function (Blueprint $table) {
             $table->string('image')->nullable()->after('tgl_register');
         });
     }
@@ -39,7 +39,7 @@ return new class extends Migration
         Schema::table('ruang', function (Blueprint $table) {
             $table->dropColumn('image');
         });
-        Schema::table('iventaris', function (Blueprint $table) {
+        Schema::table('inventaris', function (Blueprint $table) {
             $table->dropColumn('image');
         });
     }

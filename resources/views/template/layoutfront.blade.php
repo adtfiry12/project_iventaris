@@ -22,26 +22,42 @@
             <button type="button"><i class="fas fa-search"></i></button>
         </div>
 
-        <div class="user-actions">
+        <div class="user-actions" style="display: flex; align-items: center; gap: 10px;">
             @guest
                 <i class="fas fa-box-open fs-4 text-teal" style="color: var(--teal);"></i>
-                <span><a href="{{ route('login') }}">Log In</a> | <a href="{{ route('register') }}">Sign Up</span>
+                <span>
+                    <a href="{{ route('login') }}" style="text-decoration: none;">Log In</a> |
+                    <a href="{{ route('register') }}" style="text-decoration: none;">Sign Up</a>
+                </span>
             @else
                 @if (auth()->user()->role == 'admin')
-                    <a href="{{ route('dashboard') }}" style="color: var(--teal); font-weight: 600;">
+                    <a href="{{ route('dashboard') }}" style="color: var(--teal); font-weight: 600; text-decoration: none;">
                         <i class="fas fa-tachometer-alt"></i> Panel Admin
                     </a>
                     <span style="color: #ccc;">|</span>
                 @endif
 
-                <img src="{{ auth()->user()->image ? asset('storage/' . auth()->user()->image) : asset('dist/img/user2-160x160.jpg') }}"
-                    alt="User Avatar" style="width: 30px; height: 30px; object-fit: cover; border-radius: 100%;">
-                <span>{{ auth()->user()->username }}</span>
+                @if (auth()->user()->image)
+                    <a href="#"><img src="{{ asset('storage/' . auth()->user()->image) }}" alt="User Avatar"
+                            style="width: 30px; height: 30px; object-fit: cover; border-radius: 100%;"></a>
+                @else
+                    <a href="#">
+                        <div
+                            style="width: 30px; height: 30px; border-radius: 100%; background-color: #e9ecef; display: inline-flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-user" style="color: #6c757d; font-size: 14px;"></i>
+                        </div>
+                    </a>
+                @endif
+
+                <a href="#"><span style="font-weight: 500;">{{ auth()->user()->username }}</span></a>
                 <span style="color: #ccc;">|</span>
 
                 <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
                     @csrf
-                    <button type="submit">Logout</button>
+                    <button type="submit"
+                        style="background: none; border: none; padding: 0; color: #dc3545; cursor: pointer; font-weight: 500;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </form>
             @endguest
         </div>
