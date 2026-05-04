@@ -1,16 +1,16 @@
 @extends('template.layoutfront')
-@section('title', 'Beranda')
+@section('title', 'Home')
 
 @section('content')
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Kelola Aset & Inventaris Lebih Mudah.</h1>
-            <p class="hero-text">Tinggalkan pencatatan manual. Pantau ketersediaan barang, tata letak ruang, hingga
-                proses peminjaman karyawan secara real-time dalam satu platform terintegrasi.</p>
-            <a href="#" class="btn-order">Mulai Sekarang</a>
+            <h1 class="hero-title">Manage Assets & Inventory Easily.</h1>
+            <p class="hero-text">Say goodbye to manual tracking. Monitor item availability, room layouts, and employee
+                borrowing processes in real-time within a single integrated platform.</p>
+            <a href="#" class="btn-order">Get Started</a>
         </div>
         <div class="hero-image">
-            <img src="{{ asset('img/logoweb.png') }}" alt="Ilustrasi Inventaris">
+            <img src="{{ asset('img/logoweb.png') }}" alt="Inventory Illustration">
         </div>
     </section>
 
@@ -18,7 +18,7 @@
         <div class="cat-title-wrapper" style="text-align: center; margin-bottom: 30px;">
             <div class="cat-title bg-white d-inline-block px-4 py-2 font-weight-bold rounded shadow-sm"
                 style="color: #333; font-size: 1.2rem;">
-                Kategori Barang
+                Item Categories
             </div>
         </div>
 
