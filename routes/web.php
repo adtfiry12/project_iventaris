@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\InventarisController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PenggunaController;
@@ -38,4 +39,5 @@ Route::middleware(['auth', 'cekrole:admin'])->group(function () {
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('ruang', RuangController::class);
     Route::resource('jenis', JenisController::class);
+    Route::resource('inventaris', InventarisController::class);
 });

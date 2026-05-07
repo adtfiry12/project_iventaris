@@ -18,4 +18,9 @@ class Jenis extends Model
         'image',
         'keterangan',
     ];
+
+    public function inventaris()
+    {
+        return $this->hasMany(Inventaris::class, 'id_jenis', 'id_jenis');
+    }
 }

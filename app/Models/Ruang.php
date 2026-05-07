@@ -16,4 +16,9 @@ class Ruang extends Model
         'keterangan',
         'image',
     ];
+
+    public function inventaris()
+    {
+        return $this->hasMany(Inventaris::class, 'id_ruang', 'id_ruang');
+    }
 }

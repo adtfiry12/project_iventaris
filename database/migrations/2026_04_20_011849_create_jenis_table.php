@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_jenis');
             $table->string('kode_jenis');
             $table->string('nama_jenis');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

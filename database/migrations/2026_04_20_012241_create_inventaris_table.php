@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kode_inventaris');
             $table->string('nama');
             $table->string('kondisi');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->integer('jumlah');
             $table->bigInteger('id_jenis');
             $table->bigInteger('id_ruang');

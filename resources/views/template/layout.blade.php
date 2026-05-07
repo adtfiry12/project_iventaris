@@ -312,9 +312,9 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item {{ request()->routeIs('Inventaris.*') ? 'menu-open' : '' }}">
+                        <li class="nav-item {{ request()->routeIs('inventaris.*') ? 'menu-open' : '' }}">
                             <a href="#"
-                                class="nav-link {{ request()->routeIs('Inventaris.*') ? 'active' : '' }}">
+                                class="nav-link {{ request()->routeIs('inventaris.*') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-boxes"></i>
                                 <p>
                                     Inventaris
@@ -323,15 +323,15 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('Inventaris.index') ? 'active' : '' }}">
+                                    <a href="{{ route('inventaris.index') }}"
+                                        class="nav-link {{ request()->routeIs('inventaris.index') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Inventaris</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ request()->routeIs('Inventaris.create') ? 'active' : '' }}">
+                                    <a href="{{ route('inventaris.create') }}"
+                                        class="nav-link {{ request()->routeIs('inventaris.create') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Inventaris</p>
                                     </a>

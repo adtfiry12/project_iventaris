@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_ruang');
             $table->string('kode_ruang');
             $table->string('nama_ruang');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }
