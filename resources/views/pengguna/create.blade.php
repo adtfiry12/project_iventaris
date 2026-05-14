@@ -8,7 +8,7 @@
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Form Tambah Pengguna</h3>
+                        <h3 class="card-title">Tambah Pengguna</h3>
                     </div>
                     <form action="{{ route('pengguna.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf

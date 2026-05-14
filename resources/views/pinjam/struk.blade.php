@@ -36,7 +36,7 @@
         <p>
             Tgl Pinjam : {{ \Carbon\Carbon::parse($pinjam->tgl_pinjam)->format('d-m-Y') }} <br>
             Peminjam : {{ $pinjam->karyawan->nama }} <br>
-            Petugas : {{ $pinjam->pengguna->nama }}
+            Admin : {{ $pinjam->pengguna->nama }}
         </p>
         <hr style="border: 1px dashed #000;">
         <table>
