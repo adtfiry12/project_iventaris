@@ -17,4 +17,9 @@ class Karyawan extends Model
         'no_telp',
         'image',
     ];
+
+    public function pinjam()
+    {
+        return $this->hasMany(Pinjam::class, 'id_karyawan', 'id_karyawan');
+    }
 }

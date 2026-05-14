@@ -1,5 +1,5 @@
 @extends('template.layout')
-@section('title', 'Daftar Jenis')
+@section('title', 'Data Jenis')
 
 @section('content')
     <div class="container-fluid">

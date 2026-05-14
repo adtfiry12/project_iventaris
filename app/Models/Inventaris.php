@@ -30,4 +30,9 @@ class Inventaris extends Model
     {
         return $this->belongsTo(Ruang::class, 'id_ruang', 'id_ruang');
     }
+
+    public function detail_pinjam()
+    {
+        return $this->hasMany(Detailpinjam::class, 'id_inventaris', 'id_inventaris');
+    }
 }

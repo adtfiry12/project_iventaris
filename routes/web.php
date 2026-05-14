@@ -6,6 +6,7 @@ use App\Http\Controllers\InventarisController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\RuangController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,4 +41,6 @@ Route::middleware(['auth', 'cekrole:admin'])->group(function () {
     Route::resource('ruang', RuangController::class);
     Route::resource('jenis', JenisController::class);
     Route::resource('inventaris', InventarisController::class);
+    Route::resource('pinjam', PinjamController::class);
+    Route::get('/pinjam/{id}/struk', [PinjamController::class, 'cetakStruk'])->name('pinjam.struk');
 });

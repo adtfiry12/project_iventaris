@@ -349,14 +349,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('pinjam.index') }}"
                                         class="nav-link {{ request()->routeIs('pinjam.index') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Peminjaman</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#"
+                                    <a href="{{ route('pinjam.create') }}"
                                         class="nav-link {{ request()->routeIs('pinjam.create') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Peminjaman</p>
@@ -437,6 +437,7 @@
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

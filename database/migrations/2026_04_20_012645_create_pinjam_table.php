@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pinjam', function (Blueprint $table) {
             $table->bigIncrements('id_pinjam');
+            $table->string('kode_pinjam');
             $table->bigInteger('id_pengguna');
             $table->date('tgl_pinjam');
             $table->date('tgl_kembali');

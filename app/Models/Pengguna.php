@@ -21,4 +21,9 @@ class Pengguna extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function pinjam()
+    {
+        return $this->hasMany(Pinjam::class, 'id_pengguna', 'id_pengguna');
+    }
 }
